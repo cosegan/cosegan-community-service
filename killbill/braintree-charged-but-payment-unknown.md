@@ -155,3 +155,7 @@ Two changes, and never the first alone. We built them on 1.0.3 and ran the scena
 - For "nonce already used" (validation error 91564), look the sale up at Braintree by order id before recording a failure: the first copy of the request may have gone through. In 2 runs of 2 the search found the sale, the payment was `SUCCESS`, and there was one sale.
 
 The first change without the second makes it worse: the refusal becomes an ordinary failure, Kill Bill retries the invoice 5 minutes later, and Braintree holds two sales for one invoice (1 run). The crash at least stops that retry. We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2341

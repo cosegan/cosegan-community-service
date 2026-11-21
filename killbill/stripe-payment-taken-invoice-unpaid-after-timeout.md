@@ -132,3 +132,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 When a charge is found for an `UNDEFINED` row, remove `overriddenTransactionStatus` (or write the status the PaymentIntent gives). That is three lines in `getPaymentInfo` in our test build on 8.0.4: the payment became `SUCCESS` and the invoice paid about a minute after the request, as soon as the plugin's own call had timed out and Kill Bill asked for the state (1 run). We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2344

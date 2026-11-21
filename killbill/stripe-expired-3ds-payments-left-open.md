@@ -138,3 +138,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 When a pending payment expires, cancel the PaymentIntent at Stripe, and store `CANCELED` only when Stripe confirms. If Stripe reports that it succeeded in the meantime, record that instead. We built that on 8.0.4 and ran the same scenario to the end: 9 PaymentIntents, all 9 cancelled at Stripe by the plugin as each expired, none left open. Kill Bill's side was as before (9 failed purchase transactions, the invoice unpaid). We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2347

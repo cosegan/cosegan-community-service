@@ -134,3 +134,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 The charge search cannot find a void, so it should not be applied to void rows. The PaymentIntent's id is in the authorization's row: read the PaymentIntent, and take `canceled` to mean the void happened. For the refused reconnection the row also has to be stored as `UNDEFINED` and not `CANCELED`, or the status check never looks at it. In a test build on 8.0.4 with these changes, the void in the scenario above was `UNKNOWN` at first and `SUCCESS` at the Janitor's check 5 minutes later (2 runs of 2). The PaymentIntent has to be read even when the stored error is an HTTP 4xx. We can send the patches we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2346

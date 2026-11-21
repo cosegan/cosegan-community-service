@@ -126,3 +126,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 Keep 204 for a void that is `SUCCESS` or `PENDING`, and for the other statuses answer as `createPaymentResponse` does. We ran that change on 0.24.22: the failed void above is then answered 502, "Failed to submit payment transaction", and a void that works is still answered 204. `voidPaymentByExternalKey` uses the same method (line 514); we read that and did not run it. We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2348

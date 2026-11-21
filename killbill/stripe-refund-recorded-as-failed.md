@@ -135,3 +135,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 Once `Refund.create` has returned, the refund happened: record it from the `Refund` object. In our test build on 8.0.4 we created the refund with `expand[]=payment_intent` and stored the PaymentIntent that comes back inside the `Refund`, so nothing is read afterwards: the refund was `SUCCESS` at once, with one refund at Stripe (2 runs of 2). The charge search should also not be applied to refund rows, since it cannot find them. A refund whose own answer is lost then stays `UNKNOWN`; to settle that one the plugin needs something to find the refund by, such as the transaction id in the refund's metadata, which we did not build. We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2345

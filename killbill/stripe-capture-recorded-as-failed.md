@@ -136,3 +136,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 The charge search cannot find a capture, a void or a refund, so it should not be applied to their rows. The PaymentIntent's id is in the authorization's row: read the PaymentIntent and decide from its `status` and `amount_received`. We built that on 8.0.4: the capture was `UNKNOWN` at first, then `SUCCESS` with the right amount at the Janitor's check (1 run). Two guards were needed. `succeeded` does not show which capture did it, so a second capture that Stripe refuses must not be taken for done. And the PaymentIntent has to be read even when the stored error is an HTTP 4xx. A refused reconnection is not covered by this change: it is stored as `CANCELED` at once (our report "Double charge after a refused reconnection"). We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2342

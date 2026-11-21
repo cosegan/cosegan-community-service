@@ -126,3 +126,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 Letting stripe-java repeat the request was enough in our test. With `setMaxNetworkRetries(2)` on the request options (`StripeConfigProperties.toRequestOptions`), stripe-java sends the request again after the 409 with the same `Idempotency-Key`, and Stripe returns the first request's answer: one PaymentIntent, the invoice paid at once (2 runs of 2, built on 8.0.4). Apart from that, an empty charge search made right after the request should not be taken to mean that the payment did not happen; Stripe's search also lags behind writes. We can send the patch we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2340

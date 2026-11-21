@@ -134,3 +134,7 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 A `ConnectException` shows that nothing was sent only if it comes from the first attempt. Two ways out, both built and run on 8.0.4: stop the JDK from re-sending a POST by itself (`sun.net.http.retryPost=false`), or store `UNDEFINED` for a `ConnectException`. Neither is enough alone. The status check then has to settle the row, and for that it must remove `overriddenTransactionStatus` when it finds the charge, and must not conclude "didn't happen" from an empty search made at once (our reports "Payment taken but invoice stays unpaid after a timeout" and "Double charge after a network failure"). With those changes the invoice was paid once, at the Janitor's check 5 minutes later (2 runs of 2 the first way, 1 of 1 the second). We can send the patches we tested.
+
+---
+
+Posted to the project: https://github.com/killbill/killbill/issues/2343

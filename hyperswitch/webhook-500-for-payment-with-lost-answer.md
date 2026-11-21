@@ -115,3 +115,7 @@ Run locally, from the released Docker images:
 3. App version: v1.129.0 (the router logs `v1.129.0-dirty-cf913c5-2026-10-31T11:10:00`)
 
 Connector: Stripe, test mode.
+
+---
+
+Posted to the project: https://github.com/juspay/hyperswitch/discussions/15345
