@@ -14,3 +14,4 @@ If you would like Cosegan to analyze or formally verify your code as well, pleas
 | [Hyperswitch](hyperswitch/README.md) | v1.129.0 | 11, and 1 reported privately | 2026-11-20 |
 | [Apache Fineract](fineract/README.md) | 1.16.1 | 2 | 2026-11-20 |
 | [Lago](lago/README.md) | v1.57.0 | 2, and 1 reported privately | 2026-11-20 |
+| [IJPay](ijpay/README.md) | 3.0.0 | 1 | 2026-11-20 |
