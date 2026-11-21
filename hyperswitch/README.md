@@ -2,8 +2,6 @@
 
 Eleven findings in the payment code of [Hyperswitch](https://github.com/juspay/hyperswitch), release v1.129.0, with Stripe as the processor. Found by [Cosegan](https://cosegan.com) on 2026-11-20.
 
-**How they were found.** The payment code was read against a short list of things it must keep: a card is charged at most once; a refund is made as recorded; a payment the processor took is not recorded as failed; every payment is settled in the end. Each place where the code could break one of them was then run on the released Docker images against Stripe's test mode, with one network fault made on purpose where a fault is needed. Every finding was then reproduced a second time on a setup built separately. None of this was seen in production.
-
 | # | Finding | Report | Posted to the project |
 |---|---|---|---|
 | 1 | Double charge after a dropped connection to Stripe | [report](double-charge-after-dropped-connection.md) | https://github.com/juspay/hyperswitch/discussions/15338 |

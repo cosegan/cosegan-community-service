@@ -2,8 +2,6 @@
 
 Nine findings in the payment code of [Kill Bill](https://github.com/killbill/killbill) and two of its payment plugins: the Stripe plugin 8.0.4, the Braintree plugin 1.0.3 and Kill Bill 0.24.22 itself. Found by [Cosegan](https://cosegan.com) between 2026-11-12 and 2026-11-16.
 
-**How they were found.** Cosegan formally verifies software: what the payment code must guarantee is written down as exact statements (one request charges the customer at most once; what Kill Bill records is what the processor did) and then proved or refuted. For the Stripe plugin several statements did not hold. Some of the findings here came out of that work, the others from reading and testing the code around it. Each was then reproduced on a test server (Kill Bill in Docker, the processor's test mode, one network fault made on purpose where a fault is needed), and each report's steps were run as written on a fresh server on 2026-11-18. None of this was seen in production.
-
 | # | Finding | In | Report | Posted to the project |
 |---|---|---|---|---|
 | 1 | Double charge after a network failure | Stripe plugin 8.0.4 | [report](stripe-double-charge-after-network-failure.md) | https://github.com/killbill/killbill/issues/2340 |
