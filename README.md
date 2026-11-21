@@ -15,3 +15,5 @@ If you would like Cosegan to analyze or formally verify your code as well, pleas
 | [Apache Fineract](fineract/README.md) | 1.16.1 | 2 | 2026-11-20 |
 | [Lago](lago/README.md) | v1.57.0 | 2, and 1 reported privately | 2026-11-20 |
 | [IJPay](ijpay/README.md) | 3.0.0 | 1 | 2026-11-20 |
+| [Jeepay](jeepay/README.md) | V3.2.9 | 7 | 2026-11-20 |
+| [Shopizer](shopizer/README.md) | 3.2.7 | 6, and 1 reported privately | 2026-11-20 |
