@@ -12,3 +12,4 @@ If you would like Cosegan to analyze or formally verify your code as well, pleas
 |---|---|---|---|
 | [Kill Bill](killbill/README.md) | 0.24.22, with its Stripe plugin 8.0.4 and Braintree plugin 1.0.3 | 9 | 2026-11-12 to 2026-11-16 |
 | [Hyperswitch](hyperswitch/README.md) | v1.129.0 | 11 | 2026-11-20 |
+| [Apache Fineract](fineract/README.md) | 1.16.1 | 2 | 2026-11-20 |

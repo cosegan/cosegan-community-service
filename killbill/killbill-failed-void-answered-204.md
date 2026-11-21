@@ -1,10 +1,6 @@
 # Kill Bill: Failed void answered with 204 (Kill Bill 0.24.22)
 
-I submitted these to the mailing list as recommended in your documentation, but they haven’t shown up after a few days so there may be something wrong. Also note these are not security vulnerabilities (I would have communicated those in private).
-
-As part of Cosegan’s community service initiative, I examined some of your payment logic and noticed a few bugs I will share here. We formally verify critical software (using mathematical proofs). If the proofs pass, then we certify certain functionality, and you don’t have to worry that there are lurking bugs that AI will find later. However, if they don’t pass (like happened here), we know there is likely a bug in the code, even if we don’t yet know what that bug is. In your case, I drilled down to find out why the proofs didn’t pass and came up with this. If you have any questions please contact me at Eric@cosegan.com.
-
-Formal verification is not new, but it’s normally very expensive so it’s only done on critical code like safety of flight or cryptographic libraries. I’m attempting to do it here for you as community service, since your project is open source and free to use.
+Found via [Cosegan](https://github.com/cosegan) formal/mathematical proof based verification and analysis.
 
 ---
 
@@ -126,7 +122,3 @@ Not attached here. We have the dump of this run, made with `kpm diagnostic --acc
 **Possible fix**
 
 Keep 204 for a void that is `SUCCESS` or `PENDING`, and for the other statuses answer as `createPaymentResponse` does. We ran that change on 0.24.22: the failed void above is then answered 502, "Failed to submit payment transaction", and a void that works is still answered 204. `voidPaymentByExternalKey` uses the same method (line 514); we read that and did not run it. We can send the patch we tested.
-
----
-
-Posted to the project: https://github.com/killbill/killbill/issues/2348
