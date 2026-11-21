@@ -2,6 +2,8 @@
 
 Eleven findings in the payment code of [Hyperswitch](https://github.com/juspay/hyperswitch), release v1.129.0, with Stripe as the processor. Found by [Cosegan](https://cosegan.com) on 2026-11-20.
 
+One more high-severity bug that affects merchants has been reported privately and responsibly to the Hyperswitch maintainers. Its details will be added here once it is fixed.
+
 | # | Finding | Report | Posted to the project |
 |---|---|---|---|
 | 1 | Double charge after a dropped connection to Stripe | [report](double-charge-after-dropped-connection.md) | https://github.com/juspay/hyperswitch/discussions/15354 |
