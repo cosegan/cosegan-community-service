@@ -91,3 +91,9 @@ None. The request body and Lago's answers are quoted as text above.
 **Version**
 
 - Lago: v1.57.0 (`getlago/api:v1.57.0`; lago-api `af1b5856`)
+
+---
+
+Reported to the project privately.
+
+Fixed by the project in https://github.com/getlago/lago-api/pull/7296 (merged 2026-11-23), where Lago thanks Cosegan for the report.
